@@ -1,0 +1,8 @@
+Flask
+peewee
+pytest
+gunicorn
+pendulum
+pymysql
+Flask-Script
+pytest-cov
