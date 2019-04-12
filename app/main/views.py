@@ -1,24 +1,35 @@
 import os
 
 from flask import (
-    Blueprint,
     current_app,
     render_template,
     url_for,
+    abort,
 )
-from app.utils import not_exist
-from jinja2.exceptions import TemplateNotFound
-from .health_identify import HealthIdentify
+from flask import request, redirect
 
-main = Blueprint("main", __name__)
-main.register_error_handler(TemplateNotFound, not_exist)
-main.add_url_rule("/health", view_func=HealthIdentify.as_view(name="health"), methods=["GET"]
-)
+from app.main import main
+from app.utils import convert_and_save
 
 
 @main.route("/")
 def index():
     return render_template("index.html")
+
+
+@main.route("/upload", methods=["GET", "POST"])
+def upload():
+    if request.method == "GET":
+        return redirect(url_for(".index"))
+    file = request.files.get("file")
+    if not file or not convert_and_save(file, file.filename):
+        abort(400)
+    return redirect(url_for(".blog", values=format(file.filename.split(".")[0])))
+
+
+@main.route("/blog/<string:blog_name>")
+def blog(blog_name):
+    return render_template("blog/{}.html".format(blog_name))
 
 
 @main.context_processor
