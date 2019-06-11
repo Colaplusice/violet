@@ -66,7 +66,7 @@ a {
  *
  * Customize the background color to match your design.
  */
-
+/* 鼠标或者其他选中的高亮颜色 */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -208,6 +208,7 @@ textarea {
 *    `:before` to contain the top-margins of child elements.
 */
 
+/*清除浮动*/
 .clearfix:before,
 .clearfix:after {
   content: " "; /* 1 */

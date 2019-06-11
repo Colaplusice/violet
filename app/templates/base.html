@@ -23,37 +23,78 @@
     {#    header #}
     <div class="Header">
         <div class="header">
-            <a class="list-item" href="#">登录</a>
-            <a class="list-item" href="#">个人信息</a>
-            <a class="list-item" href="#">联系我们</a>
-            <div class="center-me">video camera</div>
+            <a href="/" class="center-me">blog</a>
             <a class="last-item" href="#">关于</a>
         </div>
     </div>
     {#    left #}
     <div class="WrapMiddle">
-        <div class="Left">
-            <ul class="nav">
-                <li><a href="home.htm">Home</a></li>
-                <li><a href="about.htm">About</a></li>
-                <li><a href="services.htm">Our Services</a></li>
-                <li><a href="work.htm">Our Work</a></li>
-                <li><a href="news.htm">News</a></li>
-                <li class="last"><a href="contact.htm">Contact</a></li>
-            </ul>
-        </div>
         {#            main #}
+    <div class="Left">
+
+    </div>
+
         <div class="Middle">
             {% block content %}
             {% endblock %}
         </div>
         {#            right #}
         <div class="Right">
-            <div class="card bg-light">
-                <h2 class="card-title">Recommands</h2>
-                <ul class="card-body">
-                    <li><a href="">python</a></li>
-                    <li><a href="">java</a></li>
+            <div class="like">
+                <h2 class="title">
+                    猜你喜欢
+                </h2>
+                <ul class="list-group">
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一</a>
+
+                    </li>
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一个</a>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="like">
+                <h2 class="title">
+                    随机推荐
+                </h2>
+                <ul class="list-group">
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一</a>
+
+                    </li>
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一个</a>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="like">
+                <h2 class="title">
+                    topic
+                </h2>
+                <ul class="list-group">
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一</a>
+
+                    </li>
+                    <li>
+                        <i class="fa fa-chevron-right">
+                        </i>
+                        <a href="#">第一个</a>
+
+                    </li>
                 </ul>
             </div>
         </div>
@@ -82,8 +123,6 @@
     </script>
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-
-
 {% endblock %}
 </html>
 

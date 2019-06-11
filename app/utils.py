@@ -1,7 +1,6 @@
 import datetime
-import os
-
 import markdown2
+import os
 import peewee
 import pendulum
 from crawler_utils.utils import url2path
@@ -38,7 +37,6 @@ class DatetimeTZField(peewee.Field):
 
 
 def generate_file(file_path, file_name, file_stream):
-
     if "static" in file_path:
         file_name = os.path.join(file_path, file_name)
         if isinstance(file_stream, FileStorage):

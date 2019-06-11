@@ -7,9 +7,14 @@ from flask import (
     abort,
 )
 from flask import request, redirect
+from jinja2.exceptions import TemplateNotFound
 
 from app.main import main
 from app.utils import convert_and_save
+from app.utils import not_exist
+
+main.register_error_handler(TemplateNotFound, not_exist)
+main.register_error_handler(404, not_exist)
 
 
 @main.route("/")
