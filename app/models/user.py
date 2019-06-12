@@ -1,17 +1,11 @@
-from datetime import datetime
-
-from peewee import CharField, ForeignKeyField
+import pendulum
+from peewee import CharField, ForeignKeyField, TextField, DateTimeField
 
 from app.extensions import db
-from app.utils import DatetimeTZField
 
 
 class Author(db.Model):
     name = CharField(null=False, unique=True)
-    password = CharField(null=False)
-    email = CharField(null=False)
-    profile = CharField()
-    created_at = DatetimeTZField(default=datetime.now())
 
 
 class Tag(db.Model):
@@ -19,7 +13,8 @@ class Tag(db.Model):
 
 
 class Article(db.Model):
-    author_name = ForeignKeyField(Author, Author.name)
-    title = CharField()
-    tag_name = ForeignKeyField(Tag, Tag.name)
-    created_at = DatetimeTZField(default=datetime.now())
+    author = ForeignKeyField(Author, Author.name)
+    title = CharField(null=False)
+    tag = ForeignKeyField(Tag, Tag.name)
+    created_at = DateTimeField(default=pendulum.now(tz='utc'))
+    content = TextField(null=False)

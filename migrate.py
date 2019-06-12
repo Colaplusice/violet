@@ -1,15 +1,15 @@
 import os
-
-from peewee import AutoField, CharField
-from werkzeug.utils import import_string
 from datetime import datetime
 
+from flask import current_app
+from peewee import AutoField, CharField,DateTimeField
+from werkzeug.utils import import_string
+
 from app.extensions import db
-from app.utils import DatetimeTZField
 
 
 class MigrateRecord(db.Model):
-    created_at = DatetimeTZField(default=datetime.now())
+    created_at = DateTimeField(default=datetime.now())
     name = CharField(null=False)
     migrate_id = AutoField()
 
@@ -22,10 +22,10 @@ def run():
     """
     if not db.database.table_exists("migraterecord"):
         db.database.create_tables([MigrateRecord])
-
-    package_name = "jasmine_app/migrations"
+    print('current_app', current_app)
+    package_name = "app/migrations"
     if not os.path.exists(package_name):
-        os.mkdir(package_name)
+        raise FileNotFoundError('migration is not exist!')
     file_list = os.listdir(package_name)
     migration_list = []
     for file in file_list:
