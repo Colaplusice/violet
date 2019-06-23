@@ -2,10 +2,12 @@ import os
 
 from flask import Flask
 from peewee import DoesNotExist
-from .main.views import main as main_blueprint
-from configs import config
+
+from app.admin import admin as admin_blueprint
 from app.extensions import db
+from app.main.views import main as main_blueprint
 from app.utils import not_exist
+from configs import config
 
 
 def create_app():
@@ -15,4 +17,5 @@ def create_app():
     db.init_app(app)
     app.register_error_handler(DoesNotExist, not_exist)
     app.register_blueprint(main_blueprint)
+    app.register_blueprint(admin_blueprint)
     return app

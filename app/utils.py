@@ -59,3 +59,7 @@ def convert_and_save(file_stream, filename, tagName=None):
             os.mkdir(folder_path)
         generate_file(folder_path, filename, file_stream)
     return True
+
+
+def enum2choices(enum):
+    return ((f.key, f.value) for f in enum)

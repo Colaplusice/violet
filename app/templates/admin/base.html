@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="manifest" href="site.webmanifest">-->
+    <link rel="apple-touch-icon" href="icon.png">
+    {% block title %}
+        <title>violet</title>
+    {% endblock %}
+    {% block css %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% endblock %}
+    <meta name="theme-color" content="#fafafa">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image/icon.ico') }}">
+</head>
+<body>
+w
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+{% block script %}
+    <script src="{{ url_for("static",filename="js/vendor/jquery-3.3.1.min.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/vendor/modernizr-3.7.1.min.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/main.js") }}"></script>
+    <script src="{{ url_for("static",filename="js/plugins.js") }}"></script>
+    <script>
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('set', 'transport', 'beacon');
+        ga('send', 'pageview')
+    </script>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+{% endblock %}
+</html>
+

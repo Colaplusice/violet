@@ -1,0 +1,24 @@
+
+
+.like .title {
+    margin: 20px 0;
+}
+
+.like ul {
+    padding: 0;
+    width: 75%;
+    border-bottom: #dce1f5 1px solid;
+
+}
+
+.like ul li {
+    list-style-type: none;
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.like ul li a {
+    margin-left: 5px;
+    color: black;
+}

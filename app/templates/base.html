@@ -13,7 +13,10 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-item.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/list-item.css') }}">
     {% endblock %}
     <meta name="theme-color" content="#fafafa">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='image/icon.ico') }}">
@@ -23,16 +26,16 @@
     {#    header #}
     <div class="Header">
         <div class="header">
-            <a href="/" class="center-me">blog</a>
-            <a class="last-item" href="#">关于</a>
+            <a href="/" class="nav-title center">blog</a>
+            <a class="right-item" href="#">关于</a>
         </div>
     </div>
     {#    left #}
     <div class="WrapMiddle">
         {#            main #}
-    <div class="Left">
+        <div class="Left">
 
-    </div>
+        </div>
 
         <div class="Middle">
             {% block content %}

@@ -1,0 +1,41 @@
+.nav {
+    list-style-type: none;
+    width: 8rem;
+    /*border: 1px solid #486B02;*/
+}
+/* 导航栏中间的标题 */
+.nav-title {
+    width: 60%;
+    color: #ebebeb;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    display: flex;
+    text-transform: uppercase;
+}
+
+ul.nav a {
+    display: block;
+    color: #2B3F00;
+    text-decoration: none;
+    border-top: 1px solid #E4FFD3;
+    border-bottom: 1px solid #486B02;
+    /*background: url(/img/arrow.gif) no-repeat 5% 50%; padding: 0.3em 1em;*/
+}
+
+ul.nav .last a {
+    border-bottom: 0;
+}
+
+/*设置背景颜色*/
+ul.nav a:hover,
+ul.nav a:focus,
+ul.nav .selected a {
+    color: #E4FFD3;
+    background-color: #6DA203;
+}
+
+.right-item {
+    margin-right: 1rem;
+    color: #ebebeb;
+    margin-top: 10px;
+}
