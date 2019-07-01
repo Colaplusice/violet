@@ -1,30 +1,18 @@
 import os
 
 import markdown2
-from flask import current_app, render_template, url_for, abort
-from flask import request, redirect
+from flask import current_app, render_template, url_for,flash
 
 from app.main import main
 from app.models.user import Article, Tag
-from app.utils import convert_and_save
 
 
 @main.route("/")
 def index():
     articles = Article.select().order_by(Article.created_at.desc())
     tags = Tag.select()
+    flash('qweqewqe')
     return render_template("index.html", articles=articles, tags=tags)
-
-
-@main.route("/upload", methods=["GET", "POST"])
-def upload():
-    if request.method == "GET":
-        return redirect(url_for(".index"))
-    file = request.files.get("file")
-    if not file or not convert_and_save(file, file.filename):
-        abort(400)
-    return redirect(url_for(".blog", values=format(file.filename.split(".")[0])))
-
 
 @main.route("/blog/<int:article_id>")
 def blog(article_id):

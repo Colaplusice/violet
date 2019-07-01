@@ -15,7 +15,7 @@ class Tag(db.Model):
 
 class Article(db.Model):
     author = ForeignKeyField(Author, Author.name, column_name='author_name', backref='articles')
-    title = CharField(null=False)
+    title = CharField(null=False, unique=True)
     tag = ForeignKeyField(Tag, Tag.name, column_name='tag_name', backref='articles')
     created_at = DateTimeField(default=datetime.now())
     content = TextField(null=False)
