@@ -2,31 +2,22 @@
 {% block content %}
     <div class="item-list">
         <ul>
-            <li>
-                <h4 class="title">3月读书笔记《团队协作的五大障碍》</h4>
-                <p>更多文章内容请到这里看 [https://www.cnblogs.com/viphhs/p/10733645.html][1] 【笔记节选】 团队分享是一个【笔记节选】
-                    团队分享是一个</p>
-                <div class="blog-meta">
-                    <a href="">alberthao</a>
-                    发表于 2019-04-19
-                    <div class="blog-actions right">
-                        <a class="like-button" href="">
-                            <span class="number fa fa-thumbs-up"></span>
-                            23
-                        </a>
-                    </div>
-                </div>
-            </li>
             {% for article in articles %}
                 <li>
-                    <h4 class="title">{{ article.title }}</h4>
+                    <a class="title" href="/blog/{{ article.id }}">{{ article.title }}</a>
+                    <p>
+                        {{ article.content|truncate(300) }}
+                    </p>
                     <div class="blog-meta">
-                        <a href="">{{ article.author_name }}</a>
-                        发表于 {{ article.created_at }}
+                        <div>
+                            <a href="">{{ article.author_name }}</a>
+                            <p> 发表于 {{ article.created_at.strftime('%Y-%m-%d') }}
+                            </p>
+                        </div>
                         <div class="blog-actions right">
                             <a class="like-button" href="">
                                 <span class="number fa fa-thumbs-up"></span>
-                                {{ article.view }}
+                                {{ article.view_num }}
                             </a>
                         </div>
 

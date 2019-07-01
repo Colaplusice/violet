@@ -8,32 +8,35 @@
             {{ content |safe }}
         </div>
     </div>
+    <h3 class="recommend-title">相关推荐</h3>
+    <div class="item-list">
+    {% if  not related_articles %}
+        <p align="center" style="color: gray;">对不起，暂无推荐</p>
+    {% endif %}
+        {% for article in related_articles %}
+            <ul>
+                <li>
+                    <a class="title" href="/blog/{{ article.id }}">{{ article.title }}</a>
+                    <p>
+                        {{ article.content|truncate(300) }}
+                    </p>
+                    <div class="blog-meta">
+                        <div>
+                            <a href="">{{ article.author_name }}</a>
+                            <p> 发表于 {{ article.created_at.strftime('%Y-%m-%d') }}
+                            </p>
+                        </div>
+                        <div class="blog-actions right">
+                            <a class="like-button" href="">
+                                <span class="number fa fa-thumbs-up"></span>
+                                {{ article.view_num }}
+                            </a>
+                        </div>
 
-    <div class="related-blog">
-    <h2>相关推荐</h2>
-        <ul>
-            <li>
-                <a href="#">大学生毕业留言推荐</a>
-                本站为大家推荐的大学生毕业留言 还记得高中毕业时,虽然大家都笑着离开,但是心底的某个地方却在隐隐地疼痛,那时的离别不是句点,却也让我们狠狠伤心了一次.
-                而此时,毕业了,在大学,我们不得不再次微笑着面对离别,离开那些熟悉的人和事,然后,再朝着不同的方向前进,也许我们就这样从此成了陌生人,无论这世界相遇 ...
-            </li>
+                    </div>
+                </li>
+            </ul>
+        {% endfor %}
 
-        </ul>
     </div>
-
-{% endblock %}
-
-
-{% block script %}
-    {{ super() }}
-    {#    <script type="text/javascript">#}
-    {#        var converter = new showdown.Converter();#}
-    {#        var text = {{a}};#}
-    {##}
-    {##}
-    {##}
-    {#html = converter.makeHtml();#}
-    {#$('.blog-content').html(html);#}
-    {#    </script>#}
-
 {% endblock %}

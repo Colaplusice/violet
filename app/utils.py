@@ -1,14 +1,14 @@
-import datetime
-import markdown2
 import os
-import peewee
-import pendulum
+
+import markdown2
 from crawler_utils.utils import url2path
 from flask import current_app, render_template
 from werkzeug.datastructures import FileStorage
 
+
 def not_exist(error):
-    return render_template("errors/404.html")
+    print(error)
+    return render_template("errors/404.html",error=error)
 
 
 def generate_file(file_path, file_name, file_stream):

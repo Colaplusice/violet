@@ -1,9 +1,7 @@
 from flask import (
     Blueprint,
 )
-from jinja2.exceptions import TemplateNotFound
 
-from app.utils import not_exist
 from .health_identify import HealthIdentify
 
 main = Blueprint("main", __name__)
