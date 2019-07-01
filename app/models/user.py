@@ -19,4 +19,4 @@ class Article(db.Model):
     tag = ForeignKeyField(Tag, Tag.name, column_name='tag_name', backref='articles')
     created_at = DateTimeField(default=datetime.now())
     content = TextField(null=False)
-    view = IntegerField(default=0)
+    view_num = IntegerField(default=0)

@@ -35,11 +35,9 @@ def run():
     migrate_records = {record.name for record in MigrateRecord.select()}
     for migrate in migration_list:
         if migrate[0] not in migrate_records:
-            migrate[1]()
-            MigrateRecord.create(**{"name": migrate[0]})
-            print('migrate:{}'.format(migrate[0]))
-
-
-def destroy():
-    pass
-    # db.database.
+            try:
+                migrate[1]()
+                MigrateRecord.create(**{"name": migrate[0]})
+                print('migrate success :{}'.format(migrate[0]))
+            except Exception:
+                raise Exception
