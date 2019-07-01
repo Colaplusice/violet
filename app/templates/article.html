@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="blog">
+        <h1 class="blog-title">{{ article.title }}</h1>
+        <div class="blog-content">
+            {{ content |safe }}
+        </div>
+    </div>
+
+    <div class="related-blog">
+    <h2>相关推荐</h2>
+        <ul>
+            <li>
+                <a href="#">大学生毕业留言推荐</a>
+                本站为大家推荐的大学生毕业留言 还记得高中毕业时,虽然大家都笑着离开,但是心底的某个地方却在隐隐地疼痛,那时的离别不是句点,却也让我们狠狠伤心了一次.
+                而此时,毕业了,在大学,我们不得不再次微笑着面对离别,离开那些熟悉的人和事,然后,再朝着不同的方向前进,也许我们就这样从此成了陌生人,无论这世界相遇 ...
+            </li>
+
+        </ul>
+    </div>
+
+{% endblock %}
+
+
+{% block script %}
+    {{ super() }}
+    {#    <script type="text/javascript">#}
+    {#        var converter = new showdown.Converter();#}
+    {#        var text = {{a}};#}
+    {##}
+    {##}
+    {##}
+    {#html = converter.makeHtml();#}
+    {#$('.blog-content').html(html);#}
+    {#    </script>#}
+
+{% endblock %}

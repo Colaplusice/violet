@@ -1,8 +1,43 @@
 {% extends 'base.html' %}
 
-
-{% block content  %}
-
-    <h1>this is admin</h1>
-
+{% block css %}
+    {{ super() }}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="form-container">
+        <form action="/admin/" method="post" enctype=multipart/form-data >
+            <div class="row">
+                <div class="col-25">
+                    <label for="title">文章名:</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="title" name="title" placeholder="文章标题">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="tags">标签</label>
+                </div>
+                <div class="col-75">
+                    <select id="tags" name="tags">
+                        {% for tag in tags %}
+                            <option value="{{ tag.name }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    文件
+                </div>
+                <div class="col-75">
+                    <input type="file" name="article">
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 {% endblock %}

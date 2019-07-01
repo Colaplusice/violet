@@ -1,5 +1,6 @@
 import os
 
+import markdown2
 from flask import (
     current_app,
     render_template,
@@ -10,6 +11,7 @@ from flask import request, redirect
 from jinja2.exceptions import TemplateNotFound
 
 from app.main import main
+from app.models.user import Article, Tag
 from app.utils import convert_and_save
 from app.utils import not_exist
 
@@ -19,7 +21,10 @@ main.register_error_handler(404, not_exist)
 
 @main.route("/")
 def index():
-    return render_template("index.html")
+    articles = Article.select(Article.title, Article.content).order_by(Article.created_at.desc())
+    tags = Tag.select()
+    print(articles.count(), tags.count())
+    return render_template("index.html", articles=articles, tags=tags)
 
 
 @main.route("/upload", methods=["GET", "POST"])
@@ -32,9 +37,17 @@ def upload():
     return redirect(url_for(".blog", values=format(file.filename.split(".")[0])))
 
 
-@main.route("/blog/<string:blog_name>")
-def blog(blog_name):
-    return render_template("blog/{}.html".format(blog_name))
+@main.route("/blog/<int:article_id>")
+def blog(article_id):
+    article = Article.get_by_id(article_id)
+    markdown = markdown2.Markdown()
+    content = markdown.convert(article.content)
+    return render_template("index.html", article=article, content=content)
+
+
+@main.route('/about')
+def about():
+    return render_template('about.html')
 
 
 @main.context_processor

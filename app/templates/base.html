@@ -11,8 +11,6 @@
     {% endblock %}
     {% block css %}
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-item.css') }}">
@@ -27,7 +25,7 @@
     <div class="Header">
         <div class="header">
             <a href="/" class="nav-title center">blog</a>
-            <a class="right-item" href="#">关于</a>
+            <a class="right-item" href="/about">关于</a>
         </div>
     </div>
     {#    left #}
@@ -43,7 +41,7 @@
         </div>
         {#            right #}
         <div class="Right">
-            <div class="like">
+            <div class="side-list">
                 <h2 class="title">
                     猜你喜欢
                 </h2>
@@ -54,15 +52,9 @@
                         <a href="#">第一</a>
 
                     </li>
-                    <li>
-                        <i class="fa fa-chevron-right">
-                        </i>
-                        <a href="#">第一个</a>
-
-                    </li>
                 </ul>
             </div>
-            <div class="like">
+            <div class="side-list">
                 <h2 class="title">
                     随机推荐
                 </h2>
@@ -81,11 +73,12 @@
                     </li>
                 </ul>
             </div>
-            <div class="like">
+            <div class="side-list">
                 <h2 class="title">
                     topic
                 </h2>
                 <ul class="list-group">
+{#                    {% for tag in tags %}#}
                     <li>
                         <i class="fa fa-chevron-right">
                         </i>
@@ -125,7 +118,7 @@
         ga('send', 'pageview')
     </script>
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+{#    <script src="https://www.google-analytics.com/analytics.js" async defer></script>#}
 {% endblock %}
 </html>
 

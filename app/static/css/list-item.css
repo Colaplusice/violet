@@ -1,24 +1,117 @@
-
-
-.like .title {
+/*边栏随机推荐*/
+.side-list .title {
     margin: 20px 0;
 }
 
-.like ul {
+.side-list ul {
     padding: 0;
     width: 75%;
     border-bottom: #dce1f5 1px solid;
 
 }
 
-.like ul li {
+.side-list ul li {
     list-style-type: none;
     font-size: 16px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.like ul li a {
+.side-list ul li a {
     margin-left: 5px;
     color: black;
+}
+
+/*显示文章的list*/
+
+.item-list ul {
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 14px;
+}
+
+.item-list .title {
+    padding-top: 0;
+    margin-top: -10px;
+    color: #3b5998;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.item-list li {
+    border-bottom: dashed 1px #a5a5a5;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.item-list a {
+    margin-right: 20px;
+}
+
+.item-list .blog-meta {
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.item-list .recommend-link {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: block;
+}
+
+/* 用户头像*/
+
+.avartar {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.avartar img {
+    width: 70px;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.avartar img:hover {
+    border: 1px solid red;
+}
+
+.blog-actions a {
+    display: inline-block;
+    text-align: center;
+    background-color: #eee;
+    border-radius: 4px;
+    min-width: 50px;
+    padding: 7px 4px;
+    font-size: 12px;
+}
+
+.blog-actions span {
+    display: block;
+}
+
+.blog-actions a:hover {
+    color: orange;
+    text-wrap: none;
+}
+
+.blog-actions .number {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 5px;
+}
+
+.blog-actions .like-button {
+    margin-left: 20px;
+    margin-top: -10px;
 }

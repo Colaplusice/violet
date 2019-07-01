@@ -1,5 +1,6 @@
-import pendulum
-from peewee import CharField, ForeignKeyField, TextField, DateTimeField
+from datetime import datetime
+
+from peewee import CharField, ForeignKeyField, TextField, DateTimeField, IntegerField
 
 from app.extensions import db
 
@@ -13,8 +14,9 @@ class Tag(db.Model):
 
 
 class Article(db.Model):
-    author = ForeignKeyField(Author, Author.name)
+    author = ForeignKeyField(Author, Author.name, column_name='author_name', backref='articles')
     title = CharField(null=False)
-    tag = ForeignKeyField(Tag, Tag.name)
-    created_at = DateTimeField(default=pendulum.now(tz='utc'))
+    tag = ForeignKeyField(Tag, Tag.name, column_name='tag_name', backref='articles')
+    created_at = DateTimeField(default=datetime.now())
     content = TextField(null=False)
+    view = IntegerField(default=0)
